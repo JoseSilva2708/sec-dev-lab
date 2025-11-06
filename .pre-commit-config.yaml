@@ -3,4 +3,4 @@ repos:
     rev: v8.28.0
     hooks:
     -   id: gitleaks
-        entry: gitleaks detect --source="." --verbose
+        entry: gitleaks protect --staged --verbose
