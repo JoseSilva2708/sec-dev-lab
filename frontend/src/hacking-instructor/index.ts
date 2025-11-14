@@ -4,6 +4,8 @@
  */
 
 import snarkdown from 'snarkdown'
+import DOMPurify from 'dompurify'
+
 
 import { LoginAdminInstruction } from './challenges/loginAdmin'
 import { DomXssInstruction } from './challenges/domXss'
@@ -119,7 +121,9 @@ function loadHint (hint: ChallengeHint): HTMLElement {
   const picture = createElement('img', pictureStyles, { src: '/assets/public/images/hackingInstructor.png' })
 
   const textBox = createElement('span', { flexGrow: '2' })
-  textBox.innerHTML = snarkdown(hint.text)
+  const safeHtml = DOMPurify.sanitize(snarkdown(hint.text))
+  textBox.innerHTML = safeHtml
+
 
   const cancelButtonStyles = {
     textDecoration: 'none',
