@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-import snarkdown from 'snarkdown'
-import DOMPurify from 'dompurify'
+import DOMPurify from 'dompurify';
+import snarkdown from 'snarkdown';
 
 
 import { LoginAdminInstruction } from './challenges/loginAdmin'
@@ -120,9 +120,10 @@ function loadHint (hint: ChallengeHint): HTMLElement {
 
   const picture = createElement('img', pictureStyles, { src: '/assets/public/images/hackingInstructor.png' })
 
-  const textBox = createElement('span', { flexGrow: '2' })
-  const safeHtml = DOMPurify.sanitize(snarkdown(hint.text))
-  textBox.innerHTML = safeHtml
+  const textBox = createElement('span', { flexGrow: '2' });
+  const rawHtml = snarkdown(hint.text);
+  const safeHtml = DOMPurify.sanitize(rawHtml);
+  textBox.innerHTML = safeHtml;
 
 
   const cancelButtonStyles = {

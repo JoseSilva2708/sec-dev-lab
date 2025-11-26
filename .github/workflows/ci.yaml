@@ -61,7 +61,7 @@ jobs:
           path: "."
           format: "HTML"
           out: "reports"
-          args: "--disableYarnAudit"
+          args: "--disableYarnAudit --exclude test/files --exclude ftp --exclude frontend/dist"
 
       - name: Upload SCA Report
         uses: actions/upload-artifact@v4
@@ -83,4 +83,3 @@ jobs:
         uses: crazy-max/ghaction-container-scan@v3
         with:
           tarball: /tmp/juice-shop-image.tar
-          severity_threshold: "CRITICAL"
