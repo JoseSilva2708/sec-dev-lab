@@ -3,9 +3,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-import DOMPurify from 'dompurify';
-import snarkdown from 'snarkdown';
-
 
 import { LoginAdminInstruction } from './challenges/loginAdmin'
 import { DomXssInstruction } from './challenges/domXss'
