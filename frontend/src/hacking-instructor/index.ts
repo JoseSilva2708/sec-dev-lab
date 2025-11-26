@@ -121,9 +121,7 @@ function loadHint (hint: ChallengeHint): HTMLElement {
   const picture = createElement('img', pictureStyles, { src: '/assets/public/images/hackingInstructor.png' })
 
   const textBox = createElement('span', { flexGrow: '2' });
-  const rawHtml = snarkdown(hint.text);
-  const safeHtml = DOMPurify.sanitize(rawHtml);
-  textBox.innerHTML = safeHtml;
+  textBox.textContent = hint.text;
 
 
   const cancelButtonStyles = {
